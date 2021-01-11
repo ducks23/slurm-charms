@@ -3,11 +3,13 @@ name: "release"
 on:
   release:
     types: [published]
+
 jobs:
   release:
     name: "Release"
     runs-on: "ubuntu-latest"
     steps:
+
       - name: lint
         uses: actions/checkout@v1
       - uses: actions/setup-python@v1
@@ -38,6 +40,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+
           file: slurm-charms.tar.gz
           asset_name: slurm-charms_${{ steps.vars.outputs.tag }}.tar.gz
           tag: ${{ github.ref }}

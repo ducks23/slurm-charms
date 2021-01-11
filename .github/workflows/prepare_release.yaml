@@ -58,7 +58,7 @@ jobs:
       - name: "Install charmcraft and build charms"
         run: |
           pip install charmcraft
-          charmcraft build
+          make charms
      
       - name: "Parse and store git_sha, charm_file and release_version"
         if: ${{ success() }}

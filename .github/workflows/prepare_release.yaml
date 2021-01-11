@@ -65,7 +65,11 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "::set-output name=charm_file::$(slurmd.charm)"
+          echo "::set-output name=slurmd_file::$(slurmd.charm)"
+          echo "::set-output name=slurmdbd_file::$(slurmdbd.charm)"
+          echo "::set-output name=slurmctld_file::$(slurmctld.charm)"
+          echo "::set-output name=slurmrestd_file::$(slurmrestd.charm)"
+          echo "::set-output name=slurm-configurator_file::$(slurm-configurator.charm)"
           echo "::set-output name=git_sha::$(git rev-parse HEAD)"
       - name: Archive Artifacts
         if: ${{ success() }}
@@ -73,7 +77,11 @@ jobs:
         with:
           name: ${{ steps.vars.outputs.git_sha }}
           path: |
-            ${{ steps.vars.outputs.charm_file }}
+            ${{ steps.vars.outputs.slurmd_file }}
+            ${{ steps.vars.outputs.slurmdbd_file }}
+            ${{ steps.vars.outputs.slurmctld_file }}
+            ${{ steps.vars.outputs.slurmrestd_file }}
+            ${{ steps.vars.outputs.slurm-configurator_file }}
       - uses: Sibz/github-status-action@v1
         if: ${{ success() }}
         with:

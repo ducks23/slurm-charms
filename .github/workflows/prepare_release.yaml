@@ -57,7 +57,8 @@ jobs:
           git config user.email admin@omnivector.solutions
       - name: "Install charmcraft and build charms"
         run: |
-          ls -la -pwd
+          ls -la 
+          pwd
           pip install charmcraft
           make charms
      

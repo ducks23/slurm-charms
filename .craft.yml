@@ -1,7 +1,7 @@
 minVersion: "0.12.0"
 github:
   owner: ducks23
-  repo: charm-scania-hpc
+  repo: slurm-charms
 releaseBranchPrefix: releases
 changelog: CHANGELOG.md
 changelogPolicy: auto
